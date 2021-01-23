@@ -12,5 +12,34 @@
     <nav class="navbar navbar-light bg-light">
       <a href="/" class="navbar-brand">Product App</a>
     </nav>
+
+    <div class="container">
+      <div id="App" class="row pt-5">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header">
+              <h4>Add A Product</h4>
+            </div>
+            <form id="product-form" class="card-body">
+              <div class="mb-3">
+                <input id="name" type="text" class="form-control" aria-label="product name" placeholder="Product Name">
+              </div>
+              <div class="mb-3">
+                <input id="price" type="number" class="form-control" aria-label="product price" placeholder="Product Price">
+              </div>
+              <div class="mb-3">
+                <input id="year" type="number" class="form-control" aria-label="year product" placeholder="Year Product">
+              </div>
+              <div class="d-grid">
+                <button class="btn btn-primary" type="submit" aria-label="button submit">
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-8"></div>
+      </div>
+    </div>
   </body>
 </html>
