@@ -30,4 +30,3 @@ npm run dev or yarn dev
 #Build for Production
 npm run build or yarn build
 ```
-# opp-product-app
