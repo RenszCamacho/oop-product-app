@@ -190,6 +190,10 @@ var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
 },{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/main.js":[function(require,module,exports) {
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Product = function Product(name, price, year) {
@@ -199,6 +203,25 @@ var Product = function Product(name, price, year) {
   this.price = price;
   this.year = year;
 };
+
+var UI = /*#__PURE__*/function () {
+  function UI() {
+    _classCallCheck(this, UI);
+  }
+
+  _createClass(UI, [{
+    key: "addProduct",
+    value: function addProduct() {}
+  }, {
+    key: "deleteProduct",
+    value: function deleteProduct() {}
+  }, {
+    key: "showMessage",
+    value: function showMessage() {}
+  }]);
+
+  return UI;
+}();
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 

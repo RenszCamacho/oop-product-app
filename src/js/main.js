@@ -5,3 +5,11 @@ class Product {
     this.year = year;
   }
 }
+
+class UI {
+  addProduct() {}
+
+  deleteProduct() {}
+
+  showMessage() {}
+}
