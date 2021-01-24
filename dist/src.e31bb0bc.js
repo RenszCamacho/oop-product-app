@@ -221,7 +221,17 @@ var UI = /*#__PURE__*/function () {
   }]);
 
   return UI;
-}();
+}(); //DOM Events.
+
+
+var productForm = document.getElementById("product-form");
+productForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  var productName = document.getElementById("name").value;
+  var productPrice = document.getElementById("price").value;
+  var productYear = document.getElementById("year").value;
+  console.log(productYear, productPrice, productName);
+});
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
