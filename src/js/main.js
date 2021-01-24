@@ -22,5 +22,7 @@ productForm.addEventListener("submit", (e) => {
   const productName = document.getElementById("name").value;
   const productPrice = document.getElementById("price").value;
   const productYear = document.getElementById("year").value;
-  console.log(productYear, productPrice, productName);
+
+  const product = new Product(productName, productPrice, productYear);
+  console.log(product);
 });

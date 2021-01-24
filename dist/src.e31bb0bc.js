@@ -230,7 +230,8 @@ productForm.addEventListener("submit", function (e) {
   var productName = document.getElementById("name").value;
   var productPrice = document.getElementById("price").value;
   var productYear = document.getElementById("year").value;
-  console.log(productYear, productPrice, productName);
+  var product = new Product(productName, productPrice, productYear);
+  console.log(product);
 });
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
