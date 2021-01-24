@@ -190,7 +190,15 @@ var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
 },{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/main.js":[function(require,module,exports) {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var Product = function Product(name, price, year) {
+  _classCallCheck(this, Product);
+
+  this.name = name;
+  this.price = price;
+  this.year = year;
+};
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
