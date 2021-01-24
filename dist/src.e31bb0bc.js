@@ -211,7 +211,12 @@ var UI = /*#__PURE__*/function () {
 
   _createClass(UI, [{
     key: "addProduct",
-    value: function addProduct() {}
+    value: function addProduct(product) {
+      var productList = document.getElementById("product-list");
+      var element = document.createElement("div");
+      element.innerHTML = "\n    <div className=\"card text-center mb-4\">\n      <div className=\"card-body\">\n        <strong>Product Name:</strong>".concat(product.name, "\n        <strong>Product Price:</strong>").concat(product.price, "\n        <strong>Product Year:</strong>").concat(product.year, "\n      </div>\n    </div>\n    ");
+      productList.appendChild(element);
+    }
   }, {
     key: "deleteProduct",
     value: function deleteProduct() {}
@@ -231,7 +236,8 @@ productForm.addEventListener("submit", function (e) {
   var productPrice = document.getElementById("price").value;
   var productYear = document.getElementById("year").value;
   var product = new Product(productName, productPrice, productYear);
-  console.log(product);
+  var ui = new UI();
+  ui.addProduct(product);
 });
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
