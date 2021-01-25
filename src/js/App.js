@@ -3,6 +3,7 @@ import { UI } from "./UI.js";
 
 //DOM Events.
 const productForm = document.getElementById("product-form");
+const productList = document.getElementById("product-list");
 
 productForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -14,4 +15,9 @@ productForm.addEventListener("submit", (e) => {
   const ui = new UI();
   ui.addProduct(product);
   ui.resetForm();
+});
+
+productList.addEventListener("click", (e) => {
+  const ui = new UI();
+  ui.deleteProduct(e.target);
 });

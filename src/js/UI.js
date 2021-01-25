@@ -2,15 +2,16 @@ export class UI {
   addProduct(product) {
     const productList = document.getElementById("product-list");
     const element = document.createElement("div");
+    element.classList.add("card", "mb-4");
     element.innerHTML = `
-    <div class="card text-center mb-4">
-      <div class="card-body">
-        <strong>Product Name:</strong> ${product.name} -
-        <strong>Product Price:</strong> ${product.price} -
-        <strong>Product Year:</strong> ${product.year}
+      <div class="card-body d-flex justify-content-between">
+        <div>
+          <strong>Product Name:</strong> ${product.name} -
+          <strong>Product Price:</strong> ${product.price} -
+          <strong>Product Year:</strong> ${product.year}
+        </div>
         <a href="#" class="btn btn-danger" name="delete">Delete</a>
       </div>
-    </div>
     `;
     productList.appendChild(element);
   }
@@ -19,7 +20,11 @@ export class UI {
     document.getElementById("product-form").reset();
   }
 
-  deleteProduct() {}
+  deleteProduct(element) {
+    element.name === "delete"
+      ? element.parentElement.parentElement.remove()
+      : null;
+  }
 
   showMessage() {}
 }

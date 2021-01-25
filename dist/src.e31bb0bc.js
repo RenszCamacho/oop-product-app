@@ -232,7 +232,8 @@ var UI = /*#__PURE__*/function () {
     value: function addProduct(product) {
       var productList = document.getElementById("product-list");
       var element = document.createElement("div");
-      element.innerHTML = "\n    <div class=\"card text-center mb-4\">\n      <div class=\"card-body\">\n        <strong>Product Name:</strong> ".concat(product.name, " -\n        <strong>Product Price:</strong> ").concat(product.price, " -\n        <strong>Product Year:</strong> ").concat(product.year, "\n        <a href=\"#\" class=\"btn btn-danger\" name=\"delete\">Delete</a>\n      </div>\n    </div>\n    ");
+      element.classList.add("card", "mb-4");
+      element.innerHTML = "\n      <div class=\"card-body d-flex justify-content-between\">\n        <div>\n          <strong>Product Name:</strong> ".concat(product.name, " -\n          <strong>Product Price:</strong> ").concat(product.price, " -\n          <strong>Product Year:</strong> ").concat(product.year, "\n        </div>\n        <a href=\"#\" class=\"btn btn-danger\" name=\"delete\">Delete</a>\n      </div>\n    ");
       productList.appendChild(element);
     }
   }, {
@@ -242,7 +243,9 @@ var UI = /*#__PURE__*/function () {
     }
   }, {
     key: "deleteProduct",
-    value: function deleteProduct() {}
+    value: function deleteProduct(element) {
+      element.name === "delete" ? element.parentElement.parentElement.remove() : null;
+    }
   }, {
     key: "showMessage",
     value: function showMessage() {}
@@ -261,6 +264,7 @@ var _UI = require("./UI.js");
 
 //DOM Events.
 var productForm = document.getElementById("product-form");
+var productList = document.getElementById("product-list");
 productForm.addEventListener("submit", function (e) {
   e.preventDefault();
   var productName = document.getElementById("name").value;
@@ -270,6 +274,10 @@ productForm.addEventListener("submit", function (e) {
   var ui = new _UI.UI();
   ui.addProduct(product);
   ui.resetForm();
+});
+productList.addEventListener("click", function (e) {
+  var ui = new _UI.UI();
+  ui.deleteProduct(e.target);
 });
 },{"./Product.js":"js/Product.js","./UI.js":"js/UI.js"}],"index.js":[function(require,module,exports) {
 "use strict";
@@ -305,7 +313,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50121" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51271" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
