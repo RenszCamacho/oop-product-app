@@ -230,10 +230,10 @@ var UI = /*#__PURE__*/function () {
   _createClass(UI, [{
     key: "addProduct",
     value: function addProduct(product) {
-      var productList = document.getElementById("product-list");
-      var element = document.createElement("div");
+      var productList = document.getElementById("product-list"),
+          element = document.createElement("div");
       element.classList.add("card", "mb-4");
-      element.innerHTML = "\n      <div class=\"card-body d-flex justify-content-between\">\n        <div>\n          <strong>Product Name:</strong> ".concat(product.name, " -\n          <strong>Product Price:</strong> ").concat(product.price, " -\n          <strong>Product Year:</strong> ").concat(product.year, "\n        </div>\n        <a href=\"#\" class=\"btn btn-danger\" name=\"delete\">Delete</a>\n      </div>\n    ");
+      element.innerHTML = "\n      <div class=\"card-body d-flex justify-content-between\">\n        <div>\n          <strong>Product Name:</strong> ".concat(product.name, " -\n          <strong>Product Price:</strong> ").concat(product.price, " -\n          <strong>Product Year:</strong> ").concat(product.year, "\n        </div>\n        <button class=\"btn btn-danger\" name=\"delete\" type=\"button\" aria-label=\"button delete\">\n          Delete\n        </button>\n      </div>\n    ");
       productList.appendChild(element);
     }
   }, {
@@ -248,7 +248,15 @@ var UI = /*#__PURE__*/function () {
     }
   }, {
     key: "showMessage",
-    value: function showMessage() {}
+    value: function showMessage(message, css) {
+      var div = document.createElement("div");
+      div.className = "alert alert-".concat(css, " mt-4");
+      div.appendChild(document.createTextNode(message)); // SHOW IN THE DOM
+
+      var container = document.getElementById("container"),
+          app = document.getElementById("App");
+      container.insertBefore(div, app);
+    }
   }]);
 
   return UI;
@@ -263,17 +271,18 @@ var _Product = require("./Product.js");
 var _UI = require("./UI.js");
 
 //DOM Events.
-var productForm = document.getElementById("product-form");
-var productList = document.getElementById("product-list");
+var productForm = document.getElementById("product-form"),
+    productList = document.getElementById("product-list");
 productForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  var productName = document.getElementById("name").value;
-  var productPrice = document.getElementById("price").value;
-  var productYear = document.getElementById("year").value;
-  var product = new _Product.Product(productName, productPrice, productYear);
-  var ui = new _UI.UI();
+  var productName = document.getElementById("name").value,
+      productPrice = document.getElementById("price").value,
+      productYear = document.getElementById("year").value;
+  var product = new _Product.Product(productName, productPrice, productYear),
+      ui = new _UI.UI();
   ui.addProduct(product);
   ui.resetForm();
+  ui.showMessage("Product was added Successfully!", "success");
 });
 productList.addEventListener("click", function (e) {
   var ui = new _UI.UI();

@@ -1,7 +1,8 @@
 export class UI {
   addProduct(product) {
-    const productList = document.getElementById("product-list");
-    const element = document.createElement("div");
+    const productList = document.getElementById("product-list"),
+      element = document.createElement("div");
+
     element.classList.add("card", "mb-4");
     element.innerHTML = `
       <div class="card-body d-flex justify-content-between">
@@ -10,7 +11,9 @@ export class UI {
           <strong>Product Price:</strong> ${product.price} -
           <strong>Product Year:</strong> ${product.year}
         </div>
-        <a href="#" class="btn btn-danger" name="delete">Delete</a>
+        <button class="btn btn-danger" name="delete" type="button" aria-label="button delete">
+          Delete
+        </button>
       </div>
     `;
     productList.appendChild(element);
@@ -26,5 +29,13 @@ export class UI {
       : null;
   }
 
-  showMessage() {}
+  showMessage(message, css) {
+    const div = document.createElement("div");
+    div.className = `alert alert-${css} mt-4`;
+    div.appendChild(document.createTextNode(message));
+    // SHOW IN THE DOM
+    const container = document.getElementById("container"),
+      app = document.getElementById("App");
+    container.insertBefore(div, app);
+  }
 }
