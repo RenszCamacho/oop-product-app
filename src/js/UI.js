@@ -37,5 +37,8 @@ export class UI {
     const container = document.getElementById("container"),
       app = document.getElementById("App");
     container.insertBefore(div, app);
+    setTimeout(() => {
+      document.querySelector(".alert").remove();
+    }, 3000);
   }
 }

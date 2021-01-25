@@ -256,6 +256,9 @@ var UI = /*#__PURE__*/function () {
       var container = document.getElementById("container"),
           app = document.getElementById("App");
       container.insertBefore(div, app);
+      setTimeout(function () {
+        document.querySelector(".alert").remove();
+      }, 3000);
     }
   }]);
 
