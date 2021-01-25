@@ -245,6 +245,7 @@ var UI = /*#__PURE__*/function () {
     key: "deleteProduct",
     value: function deleteProduct(element) {
       element.name === "delete" ? element.parentElement.parentElement.remove() : null;
+      element.name === "delete" ? this.showMessage("Product was deleted Successfully!", "info") : null;
     }
   }, {
     key: "showMessage",
@@ -283,6 +284,11 @@ productForm.addEventListener("submit", function (e) {
       productYear = document.getElementById("year").value;
   var product = new _Product.Product(productName, productPrice, productYear),
       ui = new _UI.UI();
+
+  if (name === "" || price === "" || year === "") {
+    return ui.showMessage("Complete Fields, Please", "danger");
+  }
+
   ui.addProduct(product);
   ui.resetForm();
   ui.showMessage("Product was added Successfully!", "success");
@@ -325,7 +331,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51271" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49350" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

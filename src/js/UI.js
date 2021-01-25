@@ -27,6 +27,9 @@ export class UI {
     element.name === "delete"
       ? element.parentElement.parentElement.remove()
       : null;
+    element.name === "delete"
+      ? this.showMessage("Product was deleted Successfully!", "info")
+      : null;
   }
 
   showMessage(message, css) {

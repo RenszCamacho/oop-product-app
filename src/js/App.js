@@ -15,6 +15,9 @@ productForm.addEventListener("submit", (e) => {
   const product = new Product(productName, productPrice, productYear),
     ui = new UI();
 
+  if (name === "" || price === "" || year === "") {
+    return ui.showMessage("Complete Fields, Please", "danger");
+  }
   ui.addProduct(product);
   ui.resetForm();
   ui.showMessage("Product was added Successfully!", "success");
