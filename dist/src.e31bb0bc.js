@@ -236,6 +236,11 @@ var UI = /*#__PURE__*/function () {
       productList.appendChild(element);
     }
   }, {
+    key: "resetForm",
+    value: function resetForm() {
+      document.getElementById("product-form").reset();
+    }
+  }, {
     key: "deleteProduct",
     value: function deleteProduct() {}
   }, {
@@ -264,6 +269,7 @@ productForm.addEventListener("submit", function (e) {
   var product = new _Product.Product(productName, productPrice, productYear);
   var ui = new _UI.UI();
   ui.addProduct(product);
+  ui.resetForm();
 });
 },{"./Product.js":"js/Product.js","./UI.js":"js/UI.js"}],"index.js":[function(require,module,exports) {
 "use strict";

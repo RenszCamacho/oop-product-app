@@ -13,4 +13,5 @@ productForm.addEventListener("submit", (e) => {
   const product = new Product(productName, productPrice, productYear);
   const ui = new UI();
   ui.addProduct(product);
+  ui.resetForm();
 });

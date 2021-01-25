@@ -14,6 +14,10 @@ export class UI {
     productList.appendChild(element);
   }
 
+  resetForm() {
+    document.getElementById("product-form").reset();
+  }
+
   deleteProduct() {}
 
   showMessage() {}
