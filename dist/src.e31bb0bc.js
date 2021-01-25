@@ -232,7 +232,7 @@ var UI = /*#__PURE__*/function () {
     value: function addProduct(product) {
       var productList = document.getElementById("product-list");
       var element = document.createElement("div");
-      element.innerHTML = "\n    <div class=\"card text-center mb-4\">\n      <div class=\"card-body\">\n        <strong>Product Name:</strong>".concat(product.name, "\n        <strong>Product Price:</strong>").concat(product.price, "\n        <strong>Product Year:</strong>").concat(product.year, "\n      </div>\n    </div>\n    ");
+      element.innerHTML = "\n    <div class=\"card text-center mb-4\">\n      <div class=\"card-body\">\n        <strong>Product Name:</strong> ".concat(product.name, " -\n        <strong>Product Price:</strong> ").concat(product.price, " -\n        <strong>Product Year:</strong> ").concat(product.year, "\n        <a href=\"#\" class=\"btn btn-danger\" name=\"delete\">Delete</a>\n      </div>\n    </div>\n    ");
       productList.appendChild(element);
     }
   }, {
