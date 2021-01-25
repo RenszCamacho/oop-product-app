@@ -189,10 +189,13 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/main.js":[function(require,module,exports) {
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/Product.js":[function(require,module,exports) {
+"use strict";
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Product = void 0;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -203,6 +206,21 @@ var Product = function Product(name, price, year) {
   this.price = price;
   this.year = year;
 };
+
+exports.Product = Product;
+},{}],"js/UI.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.UI = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 var UI = /*#__PURE__*/function () {
   function UI() {
@@ -226,26 +244,34 @@ var UI = /*#__PURE__*/function () {
   }]);
 
   return UI;
-}(); //DOM Events.
+}();
 
+exports.UI = UI;
+},{}],"js/App.js":[function(require,module,exports) {
+"use strict";
 
+var _Product = require("./Product.js");
+
+var _UI = require("./UI.js");
+
+//DOM Events.
 var productForm = document.getElementById("product-form");
 productForm.addEventListener("submit", function (e) {
   e.preventDefault();
   var productName = document.getElementById("name").value;
   var productPrice = document.getElementById("price").value;
   var productYear = document.getElementById("year").value;
-  var product = new Product(productName, productPrice, productYear);
-  var ui = new UI();
+  var product = new _Product.Product(productName, productPrice, productYear);
+  var ui = new _UI.UI();
   ui.addProduct(product);
 });
-},{}],"index.js":[function(require,module,exports) {
+},{"./Product.js":"js/Product.js","./UI.js":"js/UI.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("./sass/main.scss");
 
-require("./js/main.js");
-},{"./sass/main.scss":"sass/main.scss","./js/main.js":"js/main.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+require("./js/App.js");
+},{"./sass/main.scss":"sass/main.scss","./js/App.js":"js/App.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -273,7 +299,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49989" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50121" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
